@@ -1,0 +1,52 @@
+<div class="table-responsive">
+  <table class="table">
+    <thead>
+      <tr>
+        <ng-container *ngFor="let column of tableData.columns">
+          <th *ngIf="column.visible">{{ column.name }}</th>
+        </ng-container>
+      </tr>
+    </thead>
+    
+    <tbody>
+      <tr *ngFor="let data of tableData.data">
+        <ng-container *ngFor="let column of tableData.columns">
+          <td *ngIf="column.field === 'actions' && data.actions.length >= 1; else elseBlock">
+            <div ngbDropdown container="body">
+              <a
+                ngbDropdownToggle
+                class="hide-arrow"
+                id="dropdownBrowserState"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                <i data-feather="more-vertical" class="text-primary cursor-pointer mr-50"></i>
+              </a>
+
+              <div ngbDropdownMenu class="dropdown-menu-right" aria-labelledby="dropdownBrowserState">
+                <ng-container *ngFor="let action of data.actions">
+                  <!-- if modal -->
+                  <span *ngIf="action.isModal; else elseModal">
+                    <a (click)="modalOpen(action.modalContent)" ngbDropdownItem class="d-flex align-items-center">
+                    <i [data-feather]="action.icon" class="mr-50"></i>{{action.name}}</a>
+                  </span>
+
+                  <!-- else modal -->
+                  <ng-template #elseModal>
+                    <a [routerLink]="action.url" ngbDropdownItem class="d-flex align-items-center">
+                    <i [data-feather]="action.icon" class="mr-50"></i>{{action.name}}</a>
+                  </ng-template>
+                </ng-container>
+              </div>
+            </div>
+          </td>
+
+          <ng-template #elseBlock>
+            <td *ngIf="data[column.field]">{{data[column.field]}}</td>   
+          </ng-template>
+        </ng-container>
+      </tr>
+    </tbody>
+  </table>
+</div>

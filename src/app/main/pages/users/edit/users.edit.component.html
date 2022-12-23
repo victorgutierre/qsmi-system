@@ -1,0 +1,202 @@
+<div class="content-wrapper container-xxl p-0">
+  <div class="content-body">
+    <!-- content-header component -->
+    <app-content-header [contentHeader]="contentHeader"></app-content-header>
+
+    <!-- Basic Alerts start -->
+    <section id="home-page">
+      <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-header" *ngIf="isLoaded">
+              <h4 class="card-title"><b>Editar Usuário:</b> {{userData.nome}}</h4>
+            </div>
+            <div class="card-body pb-1">
+              <div *ngIf="!isLoaded" class="d-flex text-primary justify-content-center my-1">
+                <div class="spinner-border" role="status" aria-hidden="true"></div>
+              </div>
+
+              <form class="form" *ngIf="isLoaded" [formGroup]="form" (ngSubmit)="onSubmit()">
+                <div class="row">
+                  <div class="col-md-6 col-12">
+                    <div class="form-group">
+                      <label for="nome">Nome Completo</label>
+                      <input
+                        type="text"
+                        id="nome"
+                        formControlName="nome"
+                        class="form-control"
+                        placeholder="Nome Completo"
+                      />
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-12">
+                    <div class="form-group">
+                      <label for="qsmi_email_login">E-mail</label>
+                      <input
+                        type="email"
+                        id="qsmi_email_login"
+                        formControlName="qsmi_email_login"
+                        class="form-control"
+                        placeholder="E-mail"
+                      />
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-12">
+                    <!-- trocar por combo -->
+                    <div class="form-group">
+                      <label for="cargo_id">Cargo</label>
+                      <input
+                        type="text"
+                        id="cargo_id"
+                        formControlName="cargo_id"
+                        class="form-control"
+                        placeholder="Cargo"
+                      />
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-12">
+                    <div class="form-group">
+                      <label for="telefone_fixo">Telefone Fixo</label>
+                      <input
+                        type="text"
+                        id="telefone_fixo"
+                        formControlName="telefone_fixo"
+                        class="form-control"
+                        placeholder=""
+                      />
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-12">
+                    <div class="form-group">
+                      <label for="data_nascimento">Data de Nascimento</label>
+                      <input
+                        type="text"
+                        id="data_nascimento"
+                        formControlName="data_nascimento"
+                        class="form-control"
+                        placeholder="01/02/2001"
+                      />
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-12">
+                    <div class="form-group">
+                      <label for="telefone_celular">Telefone Celular</label>
+                      <input
+                        type="text"
+                        id="telefone_celular"
+                        formControlName="telefone_celular"
+                        class="form-control"
+                        placeholder=""
+                      />
+                    </div>
+                  </div>
+
+                  <div class="col-12">
+                    <hr width="100%">
+                  </div>
+
+                  <div class="col-md-4 col-12">
+                    <div class="form-group">
+                      <label for="cep">CEP</label>
+                      <input
+                        type="text"
+                        id="cep"
+                        formControlName="cep"
+                        class="form-control"
+                        placeholder=""
+                      />
+                    </div>
+                  </div>
+
+                  <div class="col-md-6 col-12">
+                    <div class="form-group">
+                      <label for="logradouro">Logradouro</label>
+                      <input
+                        type="text"
+                        id="logradouro"
+                        formControlName="logradouro"
+                        class="form-control"
+                        placeholder=""
+                      />
+                    </div>
+                  </div>
+
+                  <div class="col-md-2 col-12">
+                    <div class="form-group">
+                      <label for="numero">№</label>
+                      <input
+                        type="text"
+                        id="numero"
+                        formControlName="numero"
+                        class="form-control"
+                        placeholder=""
+                      />
+                    </div>
+                  </div>
+
+                  <div class="col-md-4 col-12">
+                    <div class="form-group">
+                      <label for="bairro">Bairro</label>
+                      <input
+                        id="bairro"
+                        type="text"
+                        formControlName="bairro"
+                        class="form-control"
+                        placeholder=""
+                      />
+                    </div>
+                  </div>
+
+                  <div class="col-md-4 col-12">
+                    <div class="form-group">
+                      <label for="city">Cidade</label>
+                      <input
+                        type="text"
+                        id="cidade"
+                        formControlName="cidade"
+                        class="form-control"
+                        placeholder=""
+                      />
+                    </div>
+                  </div>
+
+                  <div class="col-md-4 col-12">
+                    <div class="form-group">
+                      <label for="estado">Estado</label>
+                      <input
+                        type="text"
+                        id="estado"
+                        formControlName="estado"
+                        class="form-control"
+                        placeholder=""
+                      />
+                    </div>
+                  </div>
+
+                  <div class="col-12">
+                    <hr width="100%">
+                  </div>
+
+                  <div class="col-12">
+                    <button type="submit" rippleEffect class="btn btn-success float-right">
+                      <span [data-feather]="'check-circle'" [class]="'mr-25'"></span>
+                      Salvar
+                    </button>
+
+                    <button [routerLink]="'/users'" rippleEffect class="btn btn-danger mr-1 float-right">
+                      <span [data-feather]="'x-circle'" [class]="'mr-25'"></span>
+                      Cancelar
+                    </button>
+                  </div>
+                </div>
+              </form>
+  
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Basic Alerts end -->
+  </div>
+</div>

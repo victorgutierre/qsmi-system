@@ -1,0 +1,461 @@
+<div class="content-wrapper container-xxl p-0">
+  <div class="content-body">
+    <!-- content-header component -->
+    <app-content-header [contentHeader]="contentHeader"></app-content-header>
+
+    <!-- Basic Alerts start -->
+    <section id="home-page">
+      <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-header" *ngIf="isLoaded">
+              <h4 class="card-title"><b>Editar Cliente:</b> {{clientData.empresa}}</h4>
+            </div>
+
+            <div class="card-body pb-1">
+              <div *ngIf="!isLoaded" class="d-flex text-primary justify-content-center my-1">
+                <div class="spinner-border" role="status" aria-hidden="true"></div>
+              </div>
+
+              <form class="form" *ngIf="isLoaded" [formGroup]="form" (ngSubmit)="onSubmit()">
+                <div class="row">
+                  <!-- DADOS CLIENTE -->
+
+                  <div class="col-md-6 col-12">
+                    <div class="form-group">
+                      <label for="empresa">Empresa</label>
+                      <input
+                        type="text"
+                        id="empresa"
+                        formControlName="empresa"
+                        class="form-control"
+                        placeholder="Nome da Empresa"
+                      />
+                    </div>
+
+                    <div class="form-group">
+                      <label for="razao_social">Razão Social</label>
+                      <input
+                        type="text"
+                        id="razao_social"
+                        formControlName="razao_social"
+                        class="form-control"
+                        placeholder="Razão Social"
+                      />
+                    </div>
+
+                    <div class="form-group">
+                      <label for="cnpj">CNPJ</label>
+                      <input
+                        type="text"
+                        id="cnpj"
+                        formControlName="cnpj"
+                        class="form-control"
+                        placeholder="CNPJ"
+                      />
+                    </div>
+
+                    <div class="form-group">
+                      <label for="dominio">Domínio</label>
+                      <input
+                        type="text"
+                        id="dominio"
+                        formControlName="dominio"
+                        class="form-control"
+                        placeholder="www.site.com.br"
+                      />
+                    </div>
+
+                    <div class="form-group">
+                      <label for="responsavel">Responsável pelo Projeto (Cliente)</label>
+                      <input
+                        type="text"
+                        id="responsavel"
+                        formControlName="responsavel"
+                        class="form-control"
+                        placeholder="Responsável"
+                      />
+                    </div>
+
+                    <div class="form-group">
+                      <label for="segmento">Segmento</label>
+                      <input
+                        type="text"
+                        id="segmento"
+                        formControlName="segmento"
+                        class="form-control"
+                        placeholder="Segmento"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="col-md-6 col-12">
+                    <div class="row">
+                      <div class="col-6">
+                        <div class="form-group">
+                          <label for="telefone">Telefone</label>
+                          <input
+                            type="text"
+                            id="telefone"
+                            formControlName="telefone"
+                            class="form-control"
+                            placeholder="Telefone"
+                          />
+                        </div>
+                      </div>
+
+                      <div class="col-6">
+                        <div class="form-group">
+                          <label for="nome_telefone">Nome (telefone)</label>
+                          <input
+                            type="text"
+                            id="nome_telefone"
+                            formControlName="nome_telefone"
+                            class="form-control"
+                            placeholder="Nome"
+                          />
+                        </div>
+                      </div>
+
+                      <div class="col-12">
+                        <button rippleEffect class="btn btn-success">
+                          <span [data-feather]="'plus-circle'" [class]="'mr-25'"></span>
+                          Adicionar telefone
+                        </button>
+                      </div>
+                    </div>
+
+                    <hr width="100%">
+
+                    <div class="row">
+                      <div class="col-6">
+                        <div class="form-group">
+                          <label for="email_cliente">E-mail</label>
+                          <input
+                            type="text"
+                            id="email_clente"
+                            formControlName="email_cliente"
+                            class="form-control"
+                            placeholder="Email"
+                          />
+                        </div>
+                      </div>
+
+                      <div class="col-6">
+                        <div class="form-group">
+                          <label for="nome_email_cliente">Nome (e-mail)</label>
+                          <input
+                            type="text"
+                            id="nome_email_cliente"
+                            formControlName="nome_email_cliente"
+                            class="form-control"
+                            placeholder="Nome"
+                          />
+                        </div>
+                      </div>
+
+                      <div class="col-12">
+                        <button rippleEffect class="btn btn-success">
+                          <span [data-feather]="'plus-circle'" [class]="'mr-25'"></span>
+                          Adicionar e-mail
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="col-12">
+                    <hr width="100%">
+                  </div>
+
+                  <!-- FINANCEIRO -->
+
+                  <div class="col-12">
+                    <h4 class="card-title"><b>Dados Financeiro</b></h4>
+                  </div>
+                  
+                  <div class="col-md-4 col-12">
+                    <div class="form-group">
+                      <label for="valor_mensalidade">Valor da Mensalidade</label>
+                      <input
+                        type="text"
+                        id="valor_mensalidade"
+                        formControlName="valor_mensalidade"
+                        class="form-control"
+                        placeholder="R$ 1500,00"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="col-md-4 col-12">
+                    <div class="form-group">
+                      <label for="data_pgto">Data do Pagamento da 1º Parcela</label>
+                      <input
+                        type="text"
+                        id="data_pgto"
+                        formControlName="data_pgto"
+                        class="form-control"
+                        placeholder=""
+                        mask="00/00/0000"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="col-md-4 col-12">
+                    <div class="form-group">
+                      <label for="data_venc_boleto">Dia de Vencimento do Boleto</label>
+                      <input
+                        type="text"
+                        id="data_venc_boleto"
+                        formControlName="data_venc_boleto"
+                        class="form-control"
+                        placeholder=""
+                        mask="00/00/0000"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="col-md-4 col-12">
+                    <div class="form-group">
+                      <label for="qtd_parcelas">Quantidade de Parcelas</label>
+                      <input
+                        type="text"
+                        id="qtd_parcelas"
+                        formControlName="qtd_parcelas"
+                        class="form-control"
+                        placeholder=""
+                      />
+                    </div>
+                  </div>
+
+                  <div class="col-md-4 col-12">
+                    <div class="form-group">
+                      <label for="tipo_cobranca">Tipo de Cobrança</label>
+                      <select id="tipo_cobranca" class="form-control" formControlName="tipo_cobranca">
+                        <option>IT</option>
+                        <option>Blade Runner</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <!-- FIM FINANCEIRO -->
+
+                  <div class="col-12">
+                    <hr width="100%">
+                  </div>
+
+                  <!-- DADOS PROJETO -->
+                  <div class="col-12">
+                    <h4 class="card-title"><b>Dados do Projeto</b></h4>
+                  </div>
+                  
+                  <div class="col-md-4 col-12">
+                    <div class="form-group">
+                      <label for="vendedor">Vendedor Responsável:</label>
+                      <input
+                        type="text"
+                        id="vendedor"
+                        formControlName="vendedor"
+                        class="form-control"
+                        placeholder=""
+                      />
+                    </div>
+                  </div>
+
+                  <div class="col-md-4 col-12">
+                    <div class="form-group">
+                      <label for="data_contratacao">Data da Contratação</label>
+                      <input
+                        type="text"
+                        id="data_contratacao"
+                        formControlName="data_contratacao"
+                        class="form-control"
+                        placeholder="01/02/2023"
+                        mask="00/00/0000"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="col-md-4 col-12">
+                    <div class="form-group">
+                      <label for="qtd_palavras">Quantidade de Palavras no Contrato</label>
+                      <input
+                        type="text"
+                        id="qtd_palavras"
+                        formControlName="qtd_palavras"
+                        class="form-control"
+                        placeholder=""
+                      />
+                    </div>
+                  </div>
+
+                  <div class="col-md-4 col-12">
+                    <div class="form-group">
+                      <label for="hospedagem">Hospedado com</label>
+                      <select id="hospedagem" class="form-control" formControlName="hospedagem">
+                        <option>IT</option>
+                        <option>Blade Runner</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="col-md-4 col-12">
+                    <div class="form-group">
+                      <label for="tipo_hospedagem">Tipo de Hospedagem</label>
+                      <select id="tipo_hospedagem" class="form-control" formControlName="tipo_hospedagem">
+                        <option>IT</option>
+                        <option>Blade Runner</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="col-12">
+                    <hr width="100%">
+                  </div>
+
+                  <div class="col-md-6 col-12">
+                    <div class="form-group">
+                      <label for="servico_contratado">Serviço Contratado</label>
+                      <select id="servico_contratado" class="form-control" formControlName="servico_contratado">
+                        <option>IT</option>
+                        <option>Blade Runner</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="col-md-6 col-12">
+                    <div class="form-group">
+                      <label for="tipo_servico_contratado">Especifique o Serviço Contratado</label>
+                      <select id="tipo_servico_contratado" class="form-control" formControlName="tipo_servico_contratado">
+                        <option>IT</option>
+                        <option>Blade Runner</option>
+                      </select>
+                    </div>
+                  </div>
+                  <!-- FIM DADOS PROJETO -->
+                  
+                   <div class="col-12">
+                    <hr width="100%">
+                  </div>
+
+                 <!-- ENDERECO -->
+                  <div class="col-12">
+                    <h4 class="card-title"><b>Endereço</b></h4>
+                  </div>
+
+                  <div class="col-md-4 col-12">
+                    <div class="form-group">
+                      <label for="cep">CEP</label>
+                      <input
+                        type="text"
+                        id="cep"
+                        formControlName="cep"
+                        class="form-control"
+                        placeholder=""
+                      />
+                    </div>
+                  </div>
+
+                  <div class="col-md-6 col-12">
+                    <div class="form-group">
+                      <label for="logradouro">Logradouro</label>
+                      <input
+                        type="text"
+                        id="logradouro"
+                        formControlName="logradouro"
+                        class="form-control"
+                        placeholder=""
+                      />
+                    </div>
+                  </div>
+
+                  <div class="col-md-2 col-12">
+                    <div class="form-group">
+                      <label for="numero">№</label>
+                      <input
+                        type="text"
+                        id="numero"
+                        formControlName="numero"
+                        class="form-control"
+                        placeholder=""
+                      />
+                    </div>
+                  </div>
+
+                  <div class="col-md-4 col-12">
+                    <div class="form-group">
+                      <label for="bairro">Bairro</label>
+                      <input
+                        id="bairro"
+                        type="text"
+                        formControlName="bairro"
+                        class="form-control"
+                        placeholder=""
+                      />
+                    </div>
+                  </div>
+
+                  <div class="col-md-4 col-12">
+                    <div class="form-group">
+                      <label for="city">Cidade</label>
+                      <input
+                        type="text"
+                        id="cidade"
+                        formControlName="cidade"
+                        class="form-control"
+                        placeholder=""
+                      />
+                    </div>
+                  </div>
+
+                  <div class="col-md-4 col-12">
+                    <div class="form-group">
+                      <label for="estado">Estado</label>
+                      <input
+                        type="text"
+                        id="estado"
+                        formControlName="estado"
+                        class="form-control"
+                        placeholder=""
+                      />
+                    </div>
+                  </div>
+                  <!-- FIM ENDERECO -->
+
+                  <div class="col-12">
+                    <hr width="100%">
+                  </div>
+
+                  <div class="col-12">
+                    <label for="observacoes">Observações</label>
+                    <fieldset class="form-group">
+                      <textarea class="form-control" id="observacoes" rows="3" placeholder=""></textarea>
+                    </fieldset>
+                  </div>
+                  
+
+                  <div class="col-12">
+                    <hr width="100%">
+                  </div>
+
+                  <div class="col-12">
+                    <button type="submit" rippleEffect class="btn btn-success float-right">
+                      <span [data-feather]="'check-circle'" [class]="'mr-25'"></span>
+                      Salvar
+                    </button>
+
+                    <button [routerLink]="'/clients'" rippleEffect class="btn btn-danger mr-1 float-right">
+                      <span [data-feather]="'x-circle'" [class]="'mr-25'"></span>
+                      Cancelar
+                    </button>
+                  </div>
+                </div>
+              </form>
+  
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Basic Alerts end -->
+  </div>
+</div>
