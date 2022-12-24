@@ -1,0 +1,98 @@
+<table>
+  <thead>
+    <tr>
+      <th *ngFor="let data of listHead"><b>{{ data.name }}</b></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of listData">
+      <td> 
+        {{ data.name }} <br>
+        <a href="{{ data.url }}" target="_blank">{{ data.url }}</a>
+      </td>
+      <td>{{ verifyNull(data.firstPayment) }}</td>
+      <td>{{ verifyNull(data.leaderWriter) }}</td>
+      <td>{{ verifyNull(data.developer) }}</td>
+      <td>
+        <!-- Button trigger modal -->
+        <div class="modal-success d-inline-block">
+          <!-- Button trigger modal -->
+          <button type="button" class="btn btn-outline-primary" (click)="modalOpenSuccess(modalSuccess)" rippleEffect><span [data-feather]="'eye'"></span> Visualizar</button>
+          <!-- Modal -->
+          <ng-template #modalSuccess let-modal>
+            <div class="modal-header">
+              <h5 class="modal-title" id="myModalLabel160">Briefing - {{ data.name }}</h5>
+              <button type="button" class="close" (click)="modal.dismiss('Cross click')" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body" tabindex="0" ngbAutofocus>
+              <ul ngbNav #nav="ngbNav" class="nav-tabs">
+                <li ngbNavItem>
+                  <a ngbNavLink>1 - Empresa</a>
+                  <ng-template ngbNavContent>
+                    <ul>
+                      <li><h3>Laytou novo?</h3>{{verifyNull(data.briefing.company.newLayout)}}</li>
+                      <li><h3>Público alvo?</h3>{{verifyNull(data.briefing.company.targetAudience)}}</li>
+                      <li><h3>Produtos/serviços?</h3>{{verifyNull(data.briefing.company.products)}}</li>
+                    </ul>
+                  </ng-template>
+                </li>
+                <li ngbNavItem>
+                  <a ngbNavLink>2 - Marketing</a>
+                  <ng-template ngbNavContent>
+                    <ul>
+                      <li><h3>Investe em ads?</h3>{{verifyNull(data.briefing.marketing.ads)}}</li>
+                      <li><h3>Valor por mês</h3>{{verifyNull(data.briefing.marketing.sponsoredLinkValue)}}</li>
+                      <li><h3>Palavras-chave</h3>{{verifyNull(data.briefing.marketing.keywords)}}</li>
+                      <li><h3>Outro tipo de marketing</h3>{{verifyNull(data.briefing.marketing.anotherMarketing)}}</li>
+                    </ul>
+                  </ng-template>
+                </li>
+                <li ngbNavItem>
+                  <a ngbNavLink>3 - Projeto*</a>
+                  <ng-template ngbNavContent>
+                    <ul>
+                      <li><h3>Qual é a palavra chave mais importante para seu negócio?</h3>{{verifyNull(data.briefing.project.mostValuableKeyword)}}</li>
+                      <li><h3>Fez a leitura do contrato?</h3>{{verifyNull(data.briefing.project.contract)}}</li>
+                      <li><h3>Está ciente que o trabalho de SMI é gradativo?</h3>{{verifyNull(data.briefing.project.gradualResult)}}</li>
+                    </ul>
+                  </ng-template>
+                </li>
+                <li ngbNavItem>
+                  <a ngbNavLink>4 - Acesso</a>
+                  <ng-template ngbNavContent>
+                    <ul>
+                      <li><h3>Dados de Acesso ao FTP / Painel de Controle da Hospedagem</h3></li>
+                      <ul>
+                        <li>URL ou IP: {{verifyNull(data.briefing.access.host.url)}}</li>
+                        <li>Login: {{verifyNull(data.briefing.access.host.login)}}</li>
+                        <li>Senha: {{verifyNull(data.briefing.access.host.pass)}}</li>
+                      </ul>
+                    </ul>
+                  </ng-template>
+                </li>
+                <li ngbNavItem>
+                  <a ngbNavLink>5 - Final</a>
+                  <ng-template ngbNavContent>
+                    <ul>
+                      <li><h3>Como você conheceu a Quality SMI?</h3>{{verifyNull(data.briefing.final.found)}}</li>
+                      <li><h3>Porque você contratou a Quality SMI?</h3>{{verifyNull(data.briefing.final.why)}}</li>
+                    </ul>
+                  </ng-template>
+                </li>
+              </ul>
+              <div [ngbNavOutlet]="nav" class="mt-2"></div>  
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-success" (click)="modal.close('Accept click')" rippleEffect>
+                Accept
+              </button>
+            </div>
+          </ng-template>
+          <!-- / Modal -->
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>

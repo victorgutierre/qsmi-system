@@ -5,12 +5,14 @@ import { CoreCommonModule } from '@core/common.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { TableComponent } from './table/table.component';
+import { ListComponent } from './list/list.component';
 
 @NgModule({
   declarations: [
-    TableComponent
+    TableComponent,
+    ListComponent
   ],
   imports: [CoreCommonModule, NgbModule, RouterModule],
-  exports: [TableComponent]
+  exports: [TableComponent, ListComponent],
 })
 export class ComponentsModule {}
