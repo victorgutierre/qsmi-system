@@ -23,6 +23,7 @@
                 <li ngbNavItem>
                   <a ngbNavLink>Clientes Finalizados</a>
                   <ng-template ngbNavContent>
+                    <app-finished-customers [listHead]="listHeadFinished" [listData]="finishedListData"></app-finished-customers>
                   </ng-template>
                 </li>
               </ul>

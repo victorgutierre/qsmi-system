@@ -12,6 +12,22 @@
               <h4 class="card-title">Painel do Cliente</h4>
             </div>
             <div class="card-body pb-1">
+              <table>
+                <thead>
+                  <tr>
+                    <th *ngFor="let data of listHead">{{ data }}</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let data of clients">
+                    <td>{{ data.id }}</td>
+                    <td class="{{ data.clientStatus }}">{{ data.name }}</td>
+                    <td class="{{ verifyStatus(data.status) }} align-center">{{ data.status }}</td>
+                    <td><a href="{{data.url}}" target="_blank">{{ data.url }}</a></td>
+                    <td class="btn-painel"><a href="javascript:void(0);">Acessar Painel <span [data-feather]="'arrow-right-circle'"></span></a></td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
         </div>

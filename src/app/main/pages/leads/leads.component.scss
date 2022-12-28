@@ -1,0 +1,47 @@
+table {
+  width: 100%;
+
+  th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+
+  th {
+    text-align: center;
+  }
+  tr {
+    &:hover {
+      background-color: #8d8d8d4d;
+    }
+  }
+
+  td {
+    &.options {
+      text-align: center; 
+    }
+  }
+}
+
+button {
+  &.btn {
+    &-briefing {
+      border: none;
+      margin: 5px;
+      border-radius: 4px;
+    }
+    &-edit {
+      border: none;
+      margin: 5px;
+      border-radius: 4px;
+      background-color: #0066ff;
+      color: #fff;
+    }
+    &-delete {
+      border: none;
+      margin: 5px;
+      border-radius: 4px;
+      background-color: #e43f3f;
+      color: #fff;
+    }
+  }
+}

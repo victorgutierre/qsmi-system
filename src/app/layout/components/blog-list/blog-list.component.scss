@@ -1,0 +1,55 @@
+table {
+  width: 100%;
+  
+  th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+
+  th {
+    text-align: center;
+  }
+
+  tr {
+    &:hover {
+      background-color: #8d8d8d4d;
+    }
+    td {
+      &.blue {
+        background-color: #2499bd;
+        color: #fff;
+        font-weight: 600;
+        min-width: 550px;
+      }
+      &.red {
+        background-color: #eb7f7b;
+        color: #fff;
+        font-weight: 600;
+        min-width: 550px;
+      }
+      &.pages {
+        a {
+          border: 1px solid #8a8a8a6e;
+          padding: 4px;
+          border-radius: 3px;
+
+          &:hover {
+            background-color: #81818173;
+          }
+        }
+      }
+    }
+  }
+}
+ul {
+  list-style: none;
+  padding-left: 0;
+  li {
+    h5 {
+      margin: 7px 0 0 0;
+    }
+    a {
+      padding: 7px !important;
+    }
+  }
+}

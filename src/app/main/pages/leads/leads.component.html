@@ -12,6 +12,36 @@
               <h4 class="card-title">Leads</h4>
             </div>
             <div class="card-body pb-1">
+              <table>
+                <thead>
+                  <tr>
+                    <th *ngFor="let data of tableHead">{{ data }}</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let data of leads">
+                    <td>{{ data.name }}</td>
+                    <td>{{ data.url }}</td>
+                    <td>{{ data.status }}</td>
+                    <td>{{ data.responsible }}</td>
+                    <td>{{ data.createdBy }}</td>
+                    <td class="options">
+                      <a href="javascript:void(0);">
+                        <span [data-feather]="'archive'"></span> Ocorrências 
+                      </a> 
+                      <button class="btn-briefing">
+                        <span [data-feather]="'eye'"></span>
+                      </button> 
+                      <button class="btn-edit">
+                        <span [data-feather]="'pen-tool'"></span>
+                      </button> 
+                      <button class="btn-delete">
+                        <span [data-feather]="'trash-2'"></span>
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
         </div>

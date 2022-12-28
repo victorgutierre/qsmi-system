@@ -1,0 +1,73 @@
+<table>
+  <thead>
+    <th *ngFor="let data of listHead"><b>{{ data.name }}</b></th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of listData">
+      <td>{{data.id}}</td>
+      <td class="nome">{{data.name}}<br> <a href="{{ data.url }}" target="_blank">{{ data.url }}</a></td>
+      <td>{{data.service}}</td>
+      <td>{{data.clientSince}}</td>
+      <td>{{data.finishedAt}}</td>
+      <td><a href="{{data.contentUrl}}">Conteúdo</a></td>
+      <td class="align-center">{{data.position}}</td>
+      <td class="align-center">{{verifyNull(data.lastFeedback, 'Sem Feedback')}}</td>
+      <td class="btn-feedback">
+        <!-- Button trigger modal -->
+        <div class="modal-success d-inline-block">
+          <!-- Button trigger modal -->
+          <button type="button" class="btn btn-outline-primary" (click)="modalOpenSuccess(modalSuccess)" rippleEffect><span [data-feather]="'plus'"></span> Feedback</button>
+          <!-- Modal -->
+          <ng-template #modalSuccess let-modal>
+            <div class="modal-header">
+              <h5 class="modal-title" id="myModalLabel160">Novo Feedback - {{ data.name }}</h5>
+              <button type="button" class="close" (click)="modal.dismiss('Cross click')" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body" tabindex="0" ngbAutofocus>
+              <div class="row">
+                <div class="form-group col-md-12">
+                  <label for="largeInput">Falei com:</label>
+                  <input class="form-control" type="text" />
+                </div>
+                <div class="form-group col-md-12">
+                  <label for="selectDefault">Enviou E-mail?</label>
+                  <select id="selectDefault" class="form-control mb-1">
+                    <option selected="" disabled>-- Selecione uma Resposta --</option>
+                    <option value="Não, eu não enviei">Não, eu não enviei.</option>
+                    <option value="Sim eu enviei.">Sim eu enviei.</option>
+                  </select>
+                </div>
+                <div class="form-group col-md-12">
+                  <label for="basicTextarea">Feedback</label>
+                  <fieldset class="form-group">
+                    <textarea class="form-control" id="basicTextarea" placeholder="O que o cliente disse?"></textarea>
+                  </fieldset>
+                </div>
+                <div class="form-group col-md-12">
+                  <label for="selectDefault">O cliente está:</label>
+                  <select id="selectDefault" class="form-control mb-1">
+                    <option selected="" disabled>-- Selecione uma Resposta --</option>
+                    <option value="Satisfeito">Satisfeito.</option>
+                    <option value="Insatisfeito">Insatisfeito.</option>
+                    <option value="Indiferente">Indiferente.</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" (click)="modal.close('Regect click')" rippleEffect>
+                <span [data-feather]="'x'"></span> Cancelar
+              </button>
+              <button type="button" class="btn btn-success" (click)="modal.close('Accept click')" rippleEffect>
+                <span [data-feather]="'check'"></span> Salvar
+              </button>
+            </div>
+          </ng-template>
+          <!-- / Modal -->
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>

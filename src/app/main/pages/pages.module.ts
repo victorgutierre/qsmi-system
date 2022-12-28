@@ -24,7 +24,6 @@ import { AgendaComponent } from './agenda/agenda.component';
 import { ComponentsModule } from 'app/layout/components/components.module';
 import { ClientsEditComponent } from './clients/edit/clients.edit.component';
 import { UsersEditComponent } from './users/edit/users.edit.component';
-import { ListComponent } from 'app/layout/components/list/list.component';
 
 // routing
 const routes: Routes = [

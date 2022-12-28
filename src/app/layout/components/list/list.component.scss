@@ -1,15 +1,35 @@
 table {
+  width: 100%;
+
   th, td {
     border: 1px solid #ddd;
-    padding: 15px;
+    padding: 8px;
   }
 
   th {
     text-align: center;
   }
+  tr {
+    &:hover {
+      background-color: #8d8d8d4d;
+    }
+  }
+}
+
+.btn-outline-primary {
+  padding: 15px;
+  margin: 0 auto;
 }
 
 ul {
   list-style: none;
   padding-left: 0;
+  li {
+    h5 {
+      margin: 7px 0 0 0;
+    }
+    a {
+      padding: 7px !important;
+    }
+  }
 }

@@ -12,6 +12,34 @@
               <h4 class="card-title">Financeiro</h4>
             </div>
             <div class="card-body pb-1">
+              <table>
+                <thead>
+                  <tr>
+                    <th *ngFor="let data of listHead">{{ data }}</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let data of clients" class="{{ data.situation }}">
+                    <td>{{ data.id }}</td>
+                    <td class="title">
+                      {{ data.name }} <br>
+                      <a href="{{ data.url }}" target="_blank">{{ data.url }}</a> <br>
+                      {{ data.fullName }}<br>
+                      {{ data.email }}
+                    </td>
+                    <td>{{ data.service }}</td>
+                    <td>{{ data.status }}</td>
+                    <td>{{ data.expiresDay }}</td>
+                    <td>{{ data.hiring }}</td>
+                    <td>{{ data.firstPayment }}</td>
+                    <td>{{ data.register }}</td>
+                    <td>{{ data.conclude }}</td>
+                    <td>
+                      <div *ngFor="let buttons of data.options" class="btn-option {{ buttons.class }}">{{ buttons.name }}</div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
         </div>

@@ -160,19 +160,19 @@
       // Basic buttons
       @if ($color_name != 'light' and $color_name != 'black' and $color_name != 'white') {
         .btn-#{$color_name} {
-          border-color: $color_value !important;
-          background-color: $color_value !important;
+          border-color: $primary !important;
+          background-color: $primary !important;
           color: $white !important;
 
           &:focus,
           &:active,
           &.active {
             color: $white;
-            background-color: color-function($color_name, 'darken-1') !important;
+            background-color: $primary !important;
           }
 
           &:hover:not(.disabled):not(:disabled) {
-            box-shadow: 0 8px 25px -8px rgba($color-value, 1);
+            box-shadow: 0 8px 25px -8px rgba($primary, 1);
           }
 
           &:not(:disabled):not(.disabled):active:focus {
@@ -307,10 +307,10 @@
           &.modal-#{$color_name} {
             .modal-header {
               .modal-title {
-                color: $color_value;
+                color: $primary;
               }
               .close {
-                color: $color_value !important;
+                color: $primary !important;
               }
             }
           }

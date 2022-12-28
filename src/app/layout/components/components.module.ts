@@ -6,13 +6,17 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { TableComponent } from './table/table.component';
 import { ListComponent } from './list/list.component';
+import { FinishedCustomersComponent } from './finished-customers/finished-customers.component';
+import { BlogListComponent } from './blog-list/blog-list.component';
 
 @NgModule({
   declarations: [
     TableComponent,
-    ListComponent
+    ListComponent,
+    FinishedCustomersComponent,
+    BlogListComponent
   ],
   imports: [CoreCommonModule, NgbModule, RouterModule],
-  exports: [TableComponent, ListComponent],
+  exports: [TableComponent, ListComponent, FinishedCustomersComponent, BlogListComponent],
 })
 export class ComponentsModule {}

@@ -1,0 +1,37 @@
+table {
+  width: 100%;
+  
+  th, td {
+    border: 1px solid #ddd;
+    padding: 5px;
+  }
+  th {
+    text-align: center;
+  }
+
+  td {
+    &.btn-painel {
+      text-align: center;
+    }
+    &.info {
+      background-color: #c4e3f3;
+      color: #000;
+    }
+    &.danger {
+      background-color: #ebcccc;
+      color: #000;
+    }
+    &.success {
+      background-color: #d0e9c6;
+      color: #000;
+    }
+    &.warning {
+      background-color: #e4e7b2;
+      color: #000;
+    }
+  }
+}
+
+.align-center {
+  text-align: center;
+}

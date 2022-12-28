@@ -1,0 +1,17 @@
+<table>
+  <thead>
+    <tr>
+      <th *ngFor="let data of listHead">{{ data }}</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of listData">
+      <td>{{ data.id }}</td>
+      <td class="{{verifyStatus(data.status)}}">{{ data.name }}</td>
+      <td><a href="{{ data.domain }}" target="_blank">{{ data.domain }}</a></td>
+      <td>{{ data.group }}</td>
+      <td>{{ data.pages }}</td>
+      <td class="pages"><a><span [data-feather]="'pen-tool'"></span> Páginas</a></td>
+    </tr>
+  </tbody>
+</table>
