@@ -12,7 +12,25 @@
               <h4 class="card-title">Agenda</h4>
             </div>
             <div class="card-body pb-1">
-              
+              <table class="agenda">
+                <thead>
+                  <tr>
+                    <td *ngFor="let data of nomeDiaSemana">{{ data.substring(0, 3) }}</td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let week of semana">
+                    <td *ngFor="let day of week">
+                      <div class="day">
+                        {{ day.number }}
+                      </div>
+                      <div class="commitment {{ checkCommitment(day.commitment) }}">
+                        <p>Compromisso</p>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
         </div>
