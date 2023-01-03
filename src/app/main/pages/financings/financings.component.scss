@@ -18,27 +18,27 @@ table {
 
   tr {
     &.legal {
-      background-color: #f2dede;
+      background-color: #a85252;
       color: #000;
 
       &:hover {
-        background-color: #ebcccc;
+        background-color: #a73c3c;
       }
     }
     &.open {
-      background-color: #fcf8e3;
+      background-color: #807807;
       color: #000;
 
       &:hover {
-        background-color: #faedac;
+        background-color: #8f8d12;
       }
     }
     &.success {
-      background-color: #d0e9c6;
+      background-color: #509137;
       color: #000;
 
       &:hover {
-        background-color: #a7ec8b;
+        background-color: #348614;
       }
     }
   }

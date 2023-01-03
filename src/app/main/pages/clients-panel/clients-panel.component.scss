@@ -15,19 +15,19 @@ table {
     }
     &.info {
       background-color: #c4e3f3;
-      color: #000;
+      color: #000 !important;
     }
     &.danger {
       background-color: #ebcccc;
-      color: #000;
+      color: #000 !important;
     }
     &.success {
       background-color: #d0e9c6;
-      color: #000;
+      color: #000 !important;
     }
     &.warning {
       background-color: #e4e7b2;
-      color: #000;
+      color: #000 !important;
     }
   }
 }
