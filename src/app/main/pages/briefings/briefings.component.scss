@@ -1,0 +1,30 @@
+a {
+  &.nav {
+    &-link {
+      padding: 5px;
+    }
+  }
+}
+
+table {
+  thead {
+    tr {
+      th {
+        text-align: center;
+      }
+    }
+  }
+  tbody {
+    tr {
+      td {
+        button {
+          &.btn-outline-primary {
+            padding: 10px;
+            margin: 0 auto;
+            min-width: 120px;
+          }
+        }
+      }
+    }
+  }
+}

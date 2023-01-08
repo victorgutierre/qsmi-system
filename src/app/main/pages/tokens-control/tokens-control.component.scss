@@ -1,0 +1,48 @@
+select {
+  padding: 5px;
+  border-radius: 7px;
+}
+
+table {
+  margin-top: 30px;
+  thead {
+    tr {
+      th {
+        padding: 20px 0;
+        text-align: center;
+      }
+    }
+  }
+  tbody {
+    tr {
+      &.danger {
+        background-color: #e9aeae;
+        td {
+          color: #000;
+        }
+      }
+      &.warning {
+        background-color: #fceda6;
+        td {
+          color: #000;
+        }
+      }
+      &.success {
+        background-color: #b0eb99;
+        td {
+          color: #000;
+        }
+      }
+      td {
+        padding: 5px;
+        &.options {
+          min-width: 350px;
+
+          select {
+            margin-right: 10px;
+          }
+        }
+      }
+    }
+  }
+}

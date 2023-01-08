@@ -1,0 +1,81 @@
+<div class="content-wrapper container-xxl p-0">
+  <div class="content-body">
+
+    <!-- content-header component -->
+    <app-content-header [contentHeader]="contentHeader"></app-content-header>
+
+    <!-- Basic Alerts start -->
+    <section id="home-page">
+      <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-header">
+              <h4 class="card-title">Técnicos</h4>
+            </div>
+            <div class="card-body pb-1">
+              <ul ngbNav #navJustified="ngbNav" class="nav nav-pills nav-justified">
+                <li ngbNavItem>
+                  <a ngbNavLink>Técnicos ({{ techList.length }})</a>
+                  <ng-template ngbNavContent>
+                    <ul ngbNav #navJustified2="ngbNav" class="nav nav-pills nav-justified">
+                      <li ngbNavItem *ngFor="let tech of techList">
+                        <a ngbNavLink>{{ tech.name }} ({{ tech.clients.length }})</a>
+                        <ng-template ngbNavContent>
+                          <p *ngIf="tech.clients.length == 0"><span [data-feather]="'alert-circle'"></span> Nenhum cliente foi encrontrado.</p>
+                          <table class="table table-striped" *ngIf="tech.clients.length > 0">
+                            <thead>
+                              <tr>
+                                <th *ngFor="let data of techListHead">{{ data }}</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr *ngFor="let data of tech.clients">
+                                <td>{{ data.id }}</td>
+                                <td>{{ data.name }}<br> <a href="{{ data.url }}">{{ data.url }}</a></td>
+                                <td><a href="javascript:void(0);"><span [data-feather]="'pen-tool'"></span> Revogar</a></td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </ng-template>
+                      </li>
+                    </ul>
+                    <div [ngbNavOutlet]="navJustified2" class="mt-1"></div>
+                  </ng-template>
+                </li>
+                <li ngbNavItem>
+                  <a ngbNavLink>Clientes sem Técnicos</a>
+                  <ng-template ngbNavContent>
+                    <table class="table table-striped">
+                      <thead>
+                        <tr>
+                          <th *ngFor="let data of clientsHeader">{{ data }}</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let data of clients">
+                          <td class="id">{{ data.id }}</td>
+                          <td>{{ data.name }}</td>
+                          <td>{{ data.url }}</td>
+                          <td>{{ data.status }}</td>
+                          <td>
+                            <select>
+                              <option value="" selected disabled>-- Selecione uma opção --</option>
+                              <option *ngFor="let techs of techList" value="{{ techs.id }}">{{ techs.name }}</option>
+                            </select>
+                          </td>
+                          <td class="btn-edit"><a href="javascript:void(0);"><span [data-feather]="'pen-tool'"></span> Delegar</a></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </ng-template>
+                </li>
+              </ul>
+              <div [ngbNavOutlet]="navJustified" class="mt-1"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Basic Alerts end -->
+  </div>
+</div>

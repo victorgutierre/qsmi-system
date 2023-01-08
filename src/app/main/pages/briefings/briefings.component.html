@@ -1,0 +1,129 @@
+<div class="content-wrapper container-xxl p-0">
+  <div class="content-body">
+    
+    <!-- content-header component -->
+    <app-content-header [contentHeader]="contentHeader"></app-content-header>
+
+      <!-- Basic Alerts start -->
+      <section id="home-page">
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="row">
+                <div class="card-header col-md-10">
+                  <h4 class="card-title">Briefings</h4>
+                </div>
+              </div>
+              <div class="card-body pb-1">
+                <table class="table-striped table">
+                  <thead>
+                    <tr>
+                      <th *ngFor="let data of brieafingHeader">{{ data }}</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let data of content">
+                      <td>{{ data.id }}</td>
+                      <td>{{ data.name }}</td>
+                      <td>{{ data.status }}</td>
+                      <td>{{ data.createdAt }}</td>
+                      <td>{{ data.firstAccess }}</td>
+                      <td>{{ data.firstShipment }}</td>
+                      <td>{{ data.approvedIn }}</td>
+                      <td>
+                         <!-- Button trigger modal -->
+                          <div class="modal-success d-inline-block">
+                            <!-- Button trigger modal -->
+                            <button type="button" class="btn btn-outline-primary" (click)="modalOpenSuccess(modalSuccess)" rippleEffect><span [data-feather]="'eye'"></span> Visualizar</button>
+                            <!-- Modal -->
+                            <ng-template #modalSuccess let-modal>
+                              <div class="modal-header">
+                                <h5 class="modal-title" id="myModalLabel160">Briefing - {{ data.name }}</h5>
+                                <button type="button" class="close" (click)="modal.dismiss('Cross click')" aria-label="Close">
+                                  <span aria-hidden="true">&times;</span>
+                                </button>
+                              </div>
+                              <div class="modal-body" tabindex="0" ngbAutofocus>
+                                <ul ngbNav #nav="ngbNav" class="nav-tabs">
+                                  <li ngbNavItem>
+                                    <a ngbNavLink>1 - Empresa</a>
+                                    <ng-template ngbNavContent>
+                                      <ul>
+                                        <li><h5>No ato da venda, foi combinado um novo layout?</h5>{{verifyNull(data.briefing.company.newLayout)}}</li>
+                                        <li><h5>Qual o público alvo da sua empresa?</h5>{{verifyNull(data.briefing.company.targetAudience)}}</li>
+                                        <li><h5>Quais produtos e/ou serviços sua empresa oferece?</h5>{{verifyNull(data.briefing.company.products)}}</li>
+                                        <li><h5>Quais regiões sua empresa atende?</h5>{{verifyNull(data.briefing.company.products)}}</li>
+                                        <li><h5>Quais os meios de contato sua empresa possui? Insira os principais e-mails e telefones.</h5>{{verifyNull(data.briefing.company.products)}}</li>
+                                        <li><h5>Quais os concorrentes da sua empresa?</h5>{{verifyNull(data.briefing.company.products)}}</li>
+                                        <li><h5>Quais os parceiros da sua empresa?</h5>{{verifyNull(data.briefing.company.products)}}</li>
+                                      </ul>
+                                    </ng-template>
+                                  </li>
+                                  <li ngbNavItem>
+                                    <a ngbNavLink>2 - Marketing</a>
+                                    <ng-template ngbNavContent>
+                                      <ul>
+                                        <li><h5>Sua empresa investe em Link Patrocinado (Google Adwords)?</h5>{{verifyNull(data.briefing.marketing.ads)}}</li>
+                                        <li><h5>Se sua empresa investe em Link Patrocinado, qual valor investido em média por mês?</h5>{{verifyNull(data.briefing.marketing.sponsoredLinkValue)}}</li>
+                                        <li><h5>Se sua empresa investe em Link Patrocinado, quais palavras chave utilizadas na campanha?</h5>{{verifyNull(data.briefing.marketing.keywords)}}</li>
+                                        <li><h5>Sua empresa investe em algum outro tipo de marketing?</h5>{{verifyNull(data.briefing.marketing.anotherMarketing)}}</li>
+                                      </ul>
+                                    </ng-template>
+                                  </li>
+                                  <li ngbNavItem>
+                                    <a ngbNavLink>3 - Projeto <span style="color:#ff3434;">*</span></a>
+                                    <ng-template ngbNavContent>
+                                      <ul>
+                                        <li><h5>Qual é a palavra chave mais importante para seu negócio?</h5>{{verifyNull(data.briefing.project.mostValuableKeyword)}}</li>
+                                        <li><h5>Fez a leitura do contrato?</h5>{{verifyNull(data.briefing.project.contract)}}</li>
+                                        <li><h5>Está ciente que o trabalho de SMI é gradativo?</h5>{{verifyNull(data.briefing.project.gradualResult)}}</li>
+                                        <li><h5>Está ciente do prazo de 45 dias úteis para conclusão do projeto?</h5>{{verifyNull(data.briefing.project.gradualResult)}}</li>
+                                        <li><h5>Está ciente que a Quality irá precisar de sua aprovação para colocar o projeto no ar?</h5>{{verifyNull(data.briefing.project.gradualResult)}}</li>
+                                      </ul>
+                                    </ng-template>
+                                  </li>
+                                  <li ngbNavItem>
+                                    <a ngbNavLink>4 - Acesso</a>
+                                    <ng-template ngbNavContent>
+                                      <ul>
+                                        <li><h5>Dados de Acesso ao FTP / Painel de Controle da Hospedagem</h5></li>
+                                        <ul>
+                                          <li><b>URL ou IP:</b> {{verifyNull(data.briefing.access.host.url)}}</li>
+                                          <li><b>Login:</b> {{verifyNull(data.briefing.access.host.login)}}</li>
+                                          <li><b>Senha:</b> {{verifyNull(data.briefing.access.host.pass)}}</li>
+                                        </ul>
+                                      </ul>
+                                    </ng-template>
+                                  </li>
+                                  <li ngbNavItem>
+                                    <a ngbNavLink>5 - Final</a>
+                                    <ng-template ngbNavContent>
+                                      <ul>
+                                        <li><h5>Como você conheceu a Quality SMI?</h5>{{verifyNull(data.briefing.final.found)}}</li>
+                                        <li><h5>Porque você contratou a Quality SMI?</h5>{{verifyNull(data.briefing.final.why)}}</li>
+                                      </ul>
+                                    </ng-template>
+                                  </li>
+                                </ul>
+                                <div [ngbNavOutlet]="nav" class="mt-2"></div>  
+                              </div>
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-success" (click)="modal.close('Accept click')" rippleEffect>
+                                  <span [data-feather]="'x'"></span> Fechar
+                                </button>
+                              </div>
+                            </ng-template>
+                            <!-- / Modal -->
+                          </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Basic Alerts end -->
+  </div>
+</div>

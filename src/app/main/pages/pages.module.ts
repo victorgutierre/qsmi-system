@@ -24,6 +24,13 @@ import { AgendaComponent } from './agenda/agenda.component';
 import { ComponentsModule } from 'app/layout/components/components.module';
 import { ClientsEditComponent } from './clients/edit/clients.edit.component';
 import { UsersEditComponent } from './users/edit/users.edit.component';
+import { BriefingsComponent } from './briefings/briefings.component';
+import { KeywordsComponent } from './keywords/keywords.component';
+import { ContentComponent } from './content/content.component';
+import { ExpertComponent } from './expert/expert.component';
+import { WritersComponent } from './writers/writers.component';
+import { SearchPositionComponent } from './search-position/search-position.component';
+import { TokensControlComponent } from './tokens-control/tokens-control.component';
 
 // routing
 const routes: Routes = [
@@ -46,6 +53,10 @@ const routes: Routes = [
   {
     path: 'clients/edit/:id',
     component: ClientsEditComponent
+  },
+  {
+    path: 'briefings',
+    component: BriefingsComponent
   },
   {
     path: 'blogs',
@@ -75,6 +86,30 @@ const routes: Routes = [
     path: 'agenda',
     component: AgendaComponent
   },
+  {
+    path: 'keywords',
+    component: KeywordsComponent
+  },
+  {
+    path: 'content',
+    component: ContentComponent
+  },
+  {
+    path: 'experts',
+    component: ExpertComponent
+  },
+  {
+    path: 'writers',
+    component: WritersComponent
+  },
+  {
+    path: 'search-position',
+    component: SearchPositionComponent
+  },
+  {
+    path: 'tokens-control',
+    component: TokensControlComponent
+  },
 ];
 
 @NgModule({
@@ -91,6 +126,13 @@ const routes: Routes = [
     ToolsComponent,
     LeadsComponent,
     AgendaComponent,
+    BriefingsComponent,
+    KeywordsComponent,
+    ContentComponent,
+    ExpertComponent,
+    WritersComponent,
+    SearchPositionComponent,
+    TokensControlComponent,
   ],
   imports: [
     CommonModule,

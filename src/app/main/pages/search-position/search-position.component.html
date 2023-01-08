@@ -1,0 +1,105 @@
+<div class="content-wrapper container-xxl p-0">
+  <div class="content-body">
+
+    <!-- content-header component -->
+    <app-content-header [contentHeader]="contentHeader"></app-content-header>
+
+    <!-- Basic Alerts start -->
+    <section id="home-page">
+      <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-header">
+              <h4 class="card-title">Buscar Posicionamento</h4>
+            </div>
+            <div class="card-body pb-1">
+              <div class="row">
+                <div class="col-6">
+                  <div class="panel">
+                    <div class="panel-heading">
+                      <strong>Palavras Chave em Contrato</strong>
+                    </div>
+                    <div class="panel-body">
+                      <p>Ultima consulta no Google (contratadas): <strong>26/12/2022 - 21:09</strong>.</p>
+                      <p>Tempo total p/ realizar todas as <strong>12945</strong> consultas.</p>
+                      <ul class="font-12">
+                        <li><strong>1x</strong>: 216 hora(s).</li>
+                        <li><strong>2x</strong>: 432 hora(s).</li>
+                        <li><strong>3x</strong>: 647 hora(s).</li>
+                      </ul>
+                    </div>
+                    <table class="table table-striped">
+                      <thead>
+                        <tr>
+                          <th>Status</th>
+                          <th class="text-center success">Buscando</th>
+                          <th class="text-center danger">Parado</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td class="warning">Em Andamento</td>
+                          <td>0</td>
+                          <td>544</td>
+                        </tr>
+                        <tr>
+                          <td class="success">Finalizado</td>
+                          <td>12945</td>
+                          <td>599</td>
+                        </tr>
+                        <tr>
+                          <td class="danger">Cancelado</td>
+                          <td>391</td>
+                          <td>19901</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="panel panel-default">
+                    <div class="panel-heading">
+                      <strong>Palavras Chave Cruzadas</strong>
+                    </div>
+                    <div class="panel-body">
+                      <p>Ultima consulta no Google (cruzadas): <strong>13/08/2021 - 15:12</strong>.</p>
+                      <p>Total de palavras cruzadas: <strong>5125</strong>.</p>
+                      <ul class="font-12">
+                        <li><strong>3x</strong>: 256 hora(s).</li>
+                        <li><strong>5x</strong>: 427 hora(s).</li>
+                        <li><strong>7x</strong>: 598 hora(s).</li>
+                        <li><strong>10x</strong>: 854 hora(s).</li>
+                        <li><strong>20x</strong>: 1,708 hora(s).</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <table class="table table-striped">
+                    <thead>
+                      <tr>
+                        <th *ngFor="let data of clientsHeader">{{ data }}</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let data of clients">
+                        <td>{{ data.name }}</td>
+                        <td>{{ data.url }}</td>
+                        <td class="{{ transformStatus(data.status) }}">{{ data.status }}</td>
+                        <td>{{ data.totalKeywords }}</td>
+                        <td>{{ data.totalCrosswords }}</td>
+                        <td class="{{ transformSearchStatus(data.searchStatus) }}">{{ data.searchStatus }}</td>
+                        <td><span [data-feather]="transformSearch(data.searchStatus)"></span></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Basic Alerts end -->
+  </div>
+</div>

@@ -23,6 +23,55 @@ export const menu: CoreMenu[] = [
     url: 'clients'
   },
   {
+    id: 'briefings',
+    title: 'Briefings',
+    type: 'item',
+    icon: 'archive',
+    url: 'briefings'
+  },
+  {
+    id: 'keywords',
+    title: 'Palavras-Chave',
+    type: 'item',
+    icon: 'key',
+    url: 'keywords'
+  },
+  {
+    id: 'content',
+    title: 'Conteúdo',
+    type: 'item',
+    icon: 'align-left',
+    url: 'content'
+  },
+  {
+    id: 'experts',
+    title: 'Técnicos',
+    type: 'item',
+    icon: 'list',
+    url: 'experts'
+  },
+  {
+    id: 'writers',
+    title: 'Redatores',
+    type: 'item',
+    icon: 'italic',
+    url: 'writers'
+  },
+  {
+    id: 'search-position',
+    title: 'Buscar Posicionamento',
+    type: 'item',
+    icon: 'search',
+    url: 'search-position'
+  },
+  {
+    id: 'tokens-control',
+    title: 'Controle de Tokens',
+    type: 'item',
+    icon: 'cpu',
+    url: 'tokens-control'
+  },
+  {
     id: 'blogs',
     title: 'Blogs',
     type: 'item',
@@ -70,5 +119,5 @@ export const menu: CoreMenu[] = [
     type: 'item',
     icon: 'calendar',
     url: 'agenda'
-  }
+  },
 ]

@@ -1,0 +1,64 @@
+<div class="content-wrapper container-xxl p-0">
+  <div class="content-body">
+    
+    <!-- content-header component -->
+    <app-content-header [contentHeader]="contentHeader"></app-content-header>
+
+      <!-- Basic Alerts start -->
+      <section id="home-page">
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="row">
+                <div class="card-header col-md-10">
+                  <h4 class="card-title">Blogs</h4>
+                </div>
+                <div class="card-header col-md-2">
+                  <button type="button" class="btn btn-outline-primary btn-search" (click)="isCollapsed5 = !isCollapsed5" [attr.aria-expanded]="!isCollapsed5" aria-controls="collapseExample4" rippleEffect>Habilitar Pesquisa</button>
+                </div>
+              </div>
+              <div [ngbCollapse]="isCollapsed5">
+                <div class="card mb-0">
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="form-group col-md-10">
+                        <input class="form-control" type="text" placeholder="Digite a palavra que você quer encontrar"/>
+                      </div>
+                      <div class="form-group col-md-2 align-right">
+                        <button type="button" class="btn btn-outline-primary" rippleEffect>
+                          <span [data-feather]="'search'" [class]="'mr-25'"></span> Pesquisar
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card-body pb-1">
+                <table class="table-striped table">
+                  <thead>
+                    <tr>
+                      <th *ngFor="let data of brieafingHeader">{{ data }}</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let data of content">
+                      <td class="align-center">{{ data.id }}</td>
+                      <td>{{ data.name }}</td>
+                      <td><a href="http://{{ data.url }}" target="_blank">{{ data.url }}</a></td>
+                      <td class="align-center {{ transformStatus(data.status) }}">{{ data.status }}</td>
+                      <td class="align-center">{{ data.sell }}</td>
+                      <td class="align-center">{{ data.contract }}</td>
+                      <td class="align-center">{{ data.crossed }}</td>
+                      <td class="client-since">{{ data.clientSince }}</td>
+                      <td class="align-center"><a href="javascript:void(0);"><span [data-feather]="'pen-tool'"></span> Editar</a></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Basic Alerts end -->
+  </div>
+</div>

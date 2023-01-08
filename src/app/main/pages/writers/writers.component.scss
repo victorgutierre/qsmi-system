@@ -1,0 +1,30 @@
+select {
+  padding: 5px;
+  border-radius: 7px;
+}
+
+table {
+  thead {
+    tr {
+      th {
+        padding: 20px 0;
+        text-align: center;
+      }
+    }
+  }
+  tbody {
+    tr {
+      td {
+        &.id {
+          padding: 5px;
+        }
+
+        &.btn-edit {
+          padding: 0; 
+          min-width: 100px;
+          text-align: center;
+        }
+      }
+    }
+  }
+}
