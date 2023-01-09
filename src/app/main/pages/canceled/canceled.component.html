@@ -1,0 +1,44 @@
+<div class="content-wrapper container-xxl p-0">
+  <div class="content-body">
+
+    <!-- content-header component -->
+    <app-content-header [contentHeader]="contentHeader"></app-content-header>
+
+    <!-- Basic Alerts start -->
+    <section id="home-page">
+      <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-header">
+              <h4 class="card-title">Controle de Tokens</h4>
+            </div>
+            <div class="card-body pb-1">
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th *ngFor="let data of clientsHeader">{{ data }}</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let data of clients" class="{{ transformStatus(data.status) }}">
+                    <td>{{ data.id }}</td>
+                    <td>{{ data.name }}</td>
+                    <td><a href="https://{{ data.url }}" target="_blank">{{ data.url }}</a></td>
+                    <td>{{ data.service }}</td>
+                    <td class="{{ transformStatus(data.project) }}">{{ data.project }}</td>
+                    <td class="{{ transformSearchStatus(data.search) }}">{{ data.search }}</td>
+                    <td>{{ data.clientSince }}</td>
+                    <td>{{ data.canceledSince }}</td>
+                    <td class="content">({{ data.content }}) <a href="javascript:void(0);">Conteúdo</a></td>
+                    <td class="options"><button>Desfazer Cancelamento</button></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Basic Alerts end -->
+  </div>
+</div>

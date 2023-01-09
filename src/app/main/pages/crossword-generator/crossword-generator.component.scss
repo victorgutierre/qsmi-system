@@ -1,0 +1,41 @@
+label {
+  margin: 0 5px;
+}
+textarea {
+  height: 150px;
+}
+div {
+  &.form-check {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 5px 0;
+
+    input[type="text"] {
+      max-width: 50%;
+    }
+
+  }
+
+  &.amount {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    p {
+      margin: 0;
+    }
+  }
+}
+
+button {
+  &.btn {
+    margin: 10px 0;
+    width: 100%;
+
+    &-warning {
+      background-color: #e95656 !important;
+      border-color: #e95656 !important;
+    }
+  }
+}

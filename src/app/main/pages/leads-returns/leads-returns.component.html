@@ -1,0 +1,178 @@
+<div class="content-wrapper container-xxl p-0">
+  <div class="content-body">
+
+    <!-- content-header component -->
+    <app-content-header [contentHeader]="contentHeader"></app-content-header>
+
+    <!-- Basic Alerts start -->
+    <section id="home-page">
+      <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-header row">
+              <div class="col-10">
+                <h4 class="card-title">Retornos de Leads</h4>
+              </div>
+              <div class="col-2">
+                <!-- Button trigger modal -->
+                <div class="modal-success d-inline-block">
+                  <!-- Button trigger modal -->
+                  <button class="btn btn-primary" (click)="modalOpenSuccess(modalSuccess)"><span
+                      [data-feather]="'plus'"></span> Novo Lead</button>
+                  <!-- Modal -->
+                  <ng-template #modalSuccess let-modal>
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="myModalLabel160">Novo Lead</h5>
+                      <button type="button" class="close" (click)="modal.dismiss('Cross click')" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body" tabindex="0" ngbAutofocus>
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label>Empresa</label>
+                            <input class="form-control" maxlength="255" type="text" value="">
+                          </div>
+                          <div class="row">
+                            <div class="col-md-12">
+                              <div class="form-group">
+                                <label for="LeadOrigemId">Origem do Lead</label>
+                                <select class="form-control" id="LeadOrigemId">
+                                  <option value=""> -- Selecione uma Origem -- </option>
+                                  <option value="1" selected="selected">
+                                    Pesquisa </option>
+                                  <option value="2">
+                                    Site </option>
+                                  <option value="3">
+                                    Indicação </option>
+                                  <option value="4">
+                                    Outdoor </option>
+                                  <option value="5">
+                                    Veículo Adesivado </option>
+                                  <option value="6">
+                                    Email Marketing </option>
+                                </select>
+                              </div>
+                            </div>
+                            <div class="col-md-12">
+                              <div class="form-group">
+                                <label>Email</label>
+                                <input class="form-control" maxlength="255" type="email">
+                              </div>
+                            </div>
+                          </div>
+                          <div class="panel panel-default">
+                            <div class="panel-body">
+                              <div class="form-group">
+                                <label>Responsável</label>
+                                <select class="form-control">
+                                  <option *ngFor="let data of techList" value="{{ data.id }}">{{ data.name }}</option>
+                                </select>
+                              </div>
+                              <div class="row">
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                    <label>Data Retorno</label>
+                                    <input class="form-control mask-date"
+                                      maxlength="255" type="text" value="09/01/2023" placeholder="__/__/____"
+                                      autocomplete="off">
+                                  </div>
+                                </div>
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                    <label>Hora Retorno</label>
+                                    <input class="form-control mask-clock"
+                                      maxlength="255" type="text" value="16:49" placeholder="__:__" autocomplete="off">
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label>Nome</label>
+                            <input class="form-control" maxlength="255" type="text"
+                              placeholder="Dono ou representante">
+                          </div>
+                          <div class="form-group">
+                            <label>Website</label>
+                            <input id="LeadDominio" class="form-control" maxlength="255"
+                              type="text" value="http://">
+                          </div>
+                          <div class="row">
+                            <div class="col-md-12">
+                              <div class="form-group">
+                                <label>Telefone 1</label>
+                                <input class="form-control mask-phone" maxlength="45"
+                                  type="text" placeholder="(__) ____-____" autocomplete="off">
+                              </div>
+                            </div>
+                            <div class="col-md-12">
+                              <div class="form-group">
+                                <label>Telefone 2</label>
+                                <input class="form-control mask-phone" maxlength="45"
+                                  type="text" placeholder="(__) ____-____" autocomplete="off">
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-12">
+                          <div class="form-group">
+                            <label>Observações</label>
+                            <textarea class="form-control" rows="4"
+                            placeholder="Palavras chave ou informações relacionadas ao Lead"></textarea>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-danger" (click)="modal.close('Regect click')" rippleEffect>
+                        <span [data-feather]="'x'"></span> Cancelar
+                      </button>
+                      <button type="button" class="btn btn-success" (click)="modal.close('Accept click')" rippleEffect>
+                        <span [data-feather]="'check'"></span> Salvar
+                      </button>
+                    </div>
+                  </ng-template>
+                  <!-- / Modal -->
+                </div>
+              </div>
+            </div>
+            <div class="card-body pb-1">
+              <ul ngbNav #nav="ngbNav" class="nav-tabs">
+                <li ngbNavItem>
+                  <a ngbNavLink>Hoje (0)</a>
+                  <ng-template ngbNavContent>
+                    <div class="returns">
+                      <p><span [data-feather]="'alert-circle'"></span> Não existem retornos para hoje.</p>
+                    </div>
+                  </ng-template>
+                </li>
+                <li ngbNavItem>
+                  <a ngbNavLink>Atrasados (0)</a>
+                  <ng-template ngbNavContent>
+                    <div class="returns">
+                      <p><span [data-feather]="'alert-circle'"></span> Não existem retornos atrasados.</p>
+                    </div>
+                  </ng-template>
+                </li>
+                <li ngbNavItem>
+                  <a ngbNavLink>Próximos 5 Dias (0)</a>
+                  <ng-template ngbNavContent>
+                    <div class="returns">
+                      <p><span [data-feather]="'alert-circle'"></span> Não existem retornos para os próximos 5 dias.</p>
+                    </div>
+                  </ng-template>
+                </li>
+              </ul>
+              <div [ngbNavOutlet]="nav" class="mt-2"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Basic Alerts end -->
+  </div>
+</div>

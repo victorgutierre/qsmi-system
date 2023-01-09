@@ -31,6 +31,10 @@ import { ExpertComponent } from './expert/expert.component';
 import { WritersComponent } from './writers/writers.component';
 import { SearchPositionComponent } from './search-position/search-position.component';
 import { TokensControlComponent } from './tokens-control/tokens-control.component';
+import { CanceledComponent } from './canceled/canceled.component';
+import { WebsiteGeneratorComponent } from './website-generator/website-generator.component';
+import { CrosswordGeneratorComponent } from './crossword-generator/crossword-generator.component';
+import { LeadsReturnsComponent } from './leads-returns/leads-returns.component';
 
 // routing
 const routes: Routes = [
@@ -110,6 +114,22 @@ const routes: Routes = [
     path: 'tokens-control',
     component: TokensControlComponent
   },
+  {
+    path: 'canceled',
+    component: CanceledComponent
+  },
+  {
+    path: 'website-generator',
+    component: WebsiteGeneratorComponent
+  },
+  {
+    path: 'crossword-generator',
+    component: CrosswordGeneratorComponent
+  },
+  {
+    path: 'leads-retuns',
+    component: LeadsReturnsComponent
+  },
 ];
 
 @NgModule({
@@ -133,6 +153,10 @@ const routes: Routes = [
     WritersComponent,
     SearchPositionComponent,
     TokensControlComponent,
+    CanceledComponent,
+    WebsiteGeneratorComponent,
+    CrosswordGeneratorComponent,
+    LeadsReturnsComponent,
   ],
   imports: [
     CommonModule,

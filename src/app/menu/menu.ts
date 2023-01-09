@@ -72,6 +72,27 @@ export const menu: CoreMenu[] = [
     url: 'tokens-control'
   },
   {
+    id: 'canceled',
+    title: 'Cancelados',
+    type: 'item',
+    icon: 'x-circle',
+    url: 'canceled'
+  },
+  {
+    id: 'website-generator',
+    title: 'Gerasites',
+    type: 'item',
+    icon: 'globe',
+    url: 'website-generator'
+  },
+  {
+    id: 'crossword-generator',
+    title: 'Gerador de Palavras Cruzadas',
+    type: 'item',
+    icon: 'shuffle',
+    url: 'crossword-generator'
+  },
+  {
     id: 'blogs',
     title: 'Blogs',
     type: 'item',
@@ -112,6 +133,13 @@ export const menu: CoreMenu[] = [
     type: 'item',
     icon: 'star',
     url: 'leads'
+  },
+  {
+    id: 'leads-retuns',
+    title: 'Retornos de Leads',
+    type: 'item',
+    icon: 'folder',
+    url: 'leads-retuns'
   },
   {
     id: 'agenda',
